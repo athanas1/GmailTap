@@ -14,5 +14,25 @@ namespace GmailTap
         {
             InitializeComponent();
         }
+        string Message = "";
+        string DotsnDashs = "";
+
+        protected void onDot(object sender, EventArgs e)
+        {
+            DotsnDashs += ".";
+            dotsAndDashs.Text = DotsnDashs;
+       }
+        protected void onDash(object sender, EventArgs e)
+        {
+            DotsnDashs += "-";
+            dotsAndDashs.Text = DotsnDashs;
+        }
+        protected void onSpace(object sender, EventArgs e)
+        {
+            Message += Morse.MorseCoder(DotsnDashs);
+            message.Text = Message;
+            DotsnDashs = "";
+            dotsAndDashs.Text = DotsnDashs;
+        }
     }
 }
